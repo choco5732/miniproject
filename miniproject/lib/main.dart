@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:miniproject/feed.dart';
 
@@ -315,14 +316,89 @@ class MemberSummaryPage extends StatelessWidget {
             // 수정 코드2
             //final Detail = Details[index];
             return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 12),
-                child: Feed(
-                  imageUrl: image,
-                  product: productName,
-                  sport: Sport,
-                  mbti: Mbti,
-                  //detail: Detail, // 수정 코드3
-                ));
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // CilpRRect 를 통해 이미지에 곡선 border 생성
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    // 이미지
+                    child: Image.network(
+                      image, // 10번째 줄의 imageUrl 가져오기
+                      width: 100,
+                      height: 100,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                  SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          productName,
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                          softWrap: false,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                        SizedBox(height: 2),
+                        Text(
+                          Sport, //'취미: 농구',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          Mbti, // 'MBTI: ISTP',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            Spacer(),
+                            GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (_) => DetailPageJSH(),
+                                  ),
+                                );
+                              },
+                              child: Row(
+                                children: [
+                                  Icon(
+                                    CupertinoIcons.plus,
+                                    color: Colors.black,
+                                    size: 16,
+                                  ),
+                                  Text(
+                                    '더보기',
+                                    style: TextStyle(color: Colors.black),
+                                  ),
+                                ],
+                              ),
+                            )
+                            // 빈 칸
+                            // 하트 아이콘
+                            // '1'
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            );
           },
           separatorBuilder: (context, index) {
             return Divider();
