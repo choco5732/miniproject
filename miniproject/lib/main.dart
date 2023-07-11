@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:miniproject/feed.dart';
 
 void main() {
   runApp(const MyApp());
@@ -367,12 +366,42 @@ class MemberSummaryPage extends StatelessWidget {
                             Spacer(),
                             GestureDetector(
                               onTap: () {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (_) => DetailPageJSH(),
-                                  ),
-                                );
+                                if (index == 0) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => DetailPageJHS(),
+                                    ),
+                                  );
+                                } else if (index == 1) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => DetailPageJSH(),
+                                    ),
+                                  );
+                                } else if (index == 2) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => DetailPageKKW(),
+                                    ),
+                                  );
+                                } else if (index == 3) {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => DetailPageJJY(),
+                                    ),
+                                  );
+                                } else {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                      builder: (_) => DetailPageHSC(),
+                                    ),
+                                  );
+                                }
                               },
                               child: Row(
                                 children: [
