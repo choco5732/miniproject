@@ -9,12 +9,14 @@ class Feed extends StatefulWidget {
     required this.product,
     required this.sport,
     required this.mbti,
+    //required this.detail,
   }) : super(key: key);
 
   final String imageUrl;
   final String product;
   final String sport;
   final String mbti;
+  //final String detail;
   // 이미지를 담을 변수
 
   @override
@@ -77,7 +79,7 @@ class _FeedState extends State<Feed> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => DetailPageJJY(),
+                          builder: (_) => DetailPageJSH(),
                         ),
                       );
                     },

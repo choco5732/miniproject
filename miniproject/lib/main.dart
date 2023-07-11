@@ -283,6 +283,14 @@ class MemberSummaryPage extends StatelessWidget {
       "MBTI: ISFP",
       "MBTI: ISTP",
     ];
+// 수정 코드1
+    // final List<String> Details = [
+    //   "DetailPageJHS()"
+    //   "DetailPageJSH()"
+    //   "DetailPageKKW()"
+    //   "DetailPageJJY()"
+    //   "DetailPageHSC()"
+    // ];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
@@ -304,14 +312,17 @@ class MemberSummaryPage extends StatelessWidget {
             final productName = productNames[index];
             final Sport = Sports[index];
             final Mbti = Mbtis[index]; // index에 해당하는 이미지
+            // 수정 코드2
+            //final Detail = Details[index];
             return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 12),
-              child: Feed(
+                padding: const EdgeInsets.symmetric(vertical: 12),
+                child: Feed(
                   imageUrl: image,
                   product: productName,
                   sport: Sport,
-                  mbti: Mbti), // imageUrl 전달
-            );
+                  mbti: Mbti,
+                  //detail: Detail, // 수정 코드3
+                ));
           },
           separatorBuilder: (context, index) {
             return Divider();
@@ -331,7 +342,10 @@ class DetailPageKKW extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        actions: [],
+        backgroundColor: Colors.purple,
+        title: const Text(
+          "십일조",
+        ),
       ),
       body: Column(
         children: [
@@ -349,7 +363,7 @@ class DetailPageKKW extends StatelessWidget {
                   borderRadius: BorderRadius.circular(5),
                   // 이미지
                   child: Image.network(
-                    'https://i.namu.wiki/i/ZK5KQRHUtu4xDpDJkYGimSK6rzlG1H-LNGeMb9se6XWZcmx4GXSMvwKe946EaCXzIwX2wCibID24I1WKTgwPkeVfBP_5U2DCfIWl1tX_Xq8hXdNYY1yafieuSyZiS9EW3S_0lzcBTDTH41scRtysaA.webp',
+                    "https://ifh.cc/g/LsrBHx.jpg",
                     width: 200,
                     height: 245,
                     fit: BoxFit.cover,
@@ -364,7 +378,7 @@ class DetailPageKKW extends StatelessWidget {
                       Container(
                         width: MediaQuery.of(context).size.width * 0.8,
                         child: Text(
-                          "  이름 : 권경운",
+                          " 이름 : 권경운",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.black,
@@ -379,7 +393,7 @@ class DetailPageKKW extends StatelessWidget {
                       Container(
                         width: MediaQuery.of(context).size.width * 0.8,
                         child: Text(
-                          "  성격 : 내향적",
+                          " 성격 : 내향적",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.black,
@@ -394,7 +408,7 @@ class DetailPageKKW extends StatelessWidget {
                       Container(
                         width: MediaQuery.of(context).size.width * 0.8,
                         child: Text(
-                          "  MBTI : ISFP ",
+                          " MBTI : ISFP ",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.black,
@@ -409,7 +423,7 @@ class DetailPageKKW extends StatelessWidget {
                       Container(
                         width: MediaQuery.of(context).size.width * 0.8,
                         child: Text(
-                          "  관심사 : 등등 ",
+                          " 관심사 : 운동, 헬스 , 노래 ",
                           style: TextStyle(
                             fontSize: 20,
                             color: Colors.black,
@@ -427,11 +441,14 @@ class DetailPageKKW extends StatelessWidget {
             margin: const EdgeInsets.all(20.0), // 윗 공간에 여백주기
             padding: const EdgeInsets.all(10.0), //텍스트 칸 여백주기
             decoration: BoxDecoration(
-              border: Border.all(color: Colors.black38, width: 5), //테두리 나타내기
+              border: Border.all(
+                color: Colors.black38,
+                width: 5,
+              ), //테두리 나타내기
             ),
             width: MediaQuery.of(context).size.width * 1,
             child: Text(
-              "자기소개 자기소개 자기소개 자기소개\n자기소개 자기소개 자기소개 자기소개\n자기소개",
+              "안녕하세요 이번에 앱 개발자가 되고 싶은 주니어 권경운입니다.\n 저는 주로 집에서 휴식시간을 취하면서 보내는 걸 좋아합니다.\n가끔 친구들과 함께 즉흥적으로 노래방이나 맛집탐방하며 즐기고 있습니다. \n 다들 수료까지 잘부탁드립니다 :)",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.black,
@@ -561,6 +578,393 @@ class DetailPageJJY extends StatelessWidget {
             width: MediaQuery.of(context).size.width * 1,
             child: Text(
               "안녕하세요\n개발꿈나무 장재용입니다.\n저는 헬스와 요리하기를 좋아합니다.\n캠프 수료날까지 포기하지 않고 서로 공부하다 힘든거 공유하면서 다들 원하는기업 취업합시다!",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DetailPageJHS extends StatelessWidget {
+  DetailPageJHS({super.key});
+
+  TextEditingController contentController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: const Text(
+          "십일조",
+        ),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              //ROW 행렬 정렬
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+              children: [
+                // CilpRRect 를 통해 이미지에 곡선 border 생성
+
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  // 이미지
+                  child: Image.network(
+                    'https://ifh.cc/g/kDaKF7.jpg',
+                    width: 200,
+                    height: 245,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                //간략 자기소개
+                Expanded(
+                  child: Column(
+                    children: [
+                      Divider(),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          " 이름 : 정현식",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          " 성격 : 나태함",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          " MBTI : ISTP ",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          " 관심사 : 농구",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.all(20.0), // 윗 공간에 여백주기
+            padding: const EdgeInsets.all(10.0), //텍스트 칸 여백주기
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black38,
+                width: 5,
+              ), //테두리 나타내기
+            ),
+            width: MediaQuery.of(context).size.width * 1,
+            child: Text(
+              "안녕하세요\n미래개발자 정현식입니다.\n저는 농구와 드라마보기를 좋아합니다.\n이왕 하기로 마음 먹은거 내일배움캠프에서 4개월동안 열심히 해볼 생각입니다. 같이 협력하며 화이팅합시다!",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DetailPageHSC extends StatelessWidget {
+  DetailPageHSC({super.key});
+
+  TextEditingController contentController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: const Text(
+          "십일조",
+        ),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              //ROW 행렬 정렬
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+              children: [
+                // CilpRRect 를 통해 이미지에 곡선 border 생성
+
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  // 이미지
+                  child: Image.network(
+                    'https://ifh.cc/g/1xXkcs.jpg',
+                    width: 200,
+                    height: 245,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                //간략 자기소개
+                Expanded(
+                  child: Column(
+                    children: [
+                      Divider(),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          "  이름 : 한상철",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          "  성격 : 엉뚱함",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          "  MBTI : ISTP  ",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          " 관심사 : 돈벌기",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.all(20.0), // 윗 공간에 여백주기
+            padding: const EdgeInsets.all(10.0), //텍스트 칸 여백주기
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black38,
+                width: 5,
+              ), //테두리 나타내기
+            ),
+            width: MediaQuery.of(context).size.width * 1,
+            child: Text(
+              "안녕하세요\n한상철입니다.\n저희11조 좋은팀원들 만나서 덕분에 잘 배우고있습니다!\n벌써 많은 오류들로 인해 버겁지만 끝까지 열심히 해보겠습니다 감사합니다",
+              style: TextStyle(
+                fontSize: 18,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class DetailPageJSH extends StatelessWidget {
+  DetailPageJSH({super.key});
+
+  TextEditingController contentController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.purple,
+        title: const Text(
+          "십일조",
+        ),
+      ),
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              //ROW 행렬 정렬
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+              children: [
+                // CilpRRect 를 통해 이미지에 곡선 border 생성
+
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(5),
+                  // 이미지
+                  child: Image.network(
+                    'https://ifh.cc/g/tVyHZn.jpg',
+                    width: 200,
+                    height: 245,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+
+                //간략 자기소개
+                Expanded(
+                  child: Column(
+                    children: [
+                      Divider(),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          "  이름 : 정선호",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          "  성격 : 차분함",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          "  MBTI : ISFP  ",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      Divider(),
+                      SizedBox(
+                        height: 20,
+                      ),
+                      Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: Text(
+                          " 관심사 : 발라드 노래 ",
+                          style: TextStyle(
+                            fontSize: 20,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            margin: const EdgeInsets.all(20.0), // 윗 공간에 여백주기
+            padding: const EdgeInsets.all(10.0), //텍스트 칸 여백주기
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: Colors.black38,
+                width: 5,
+              ), //테두리 나타내기
+            ),
+            width: MediaQuery.of(context).size.width * 1,
+            child: Text(
+              "안녕하세요\n술마시고 노래방에서 제일 신나는 정선호입니다.\n말은 많이 없지만 이번 캠프하면서 말도 많이 붙여보고\n실력도 불려가면 좋겠습니다.",
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.black,
