@@ -77,7 +77,7 @@ class _FeedState extends State<Feed> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (_) => DetailPageKKW(),
+                          builder: (_) => DetailPageJJY(),
                         ),
                       );
                     },
